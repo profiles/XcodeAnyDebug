@@ -6,13 +6,13 @@ if [ -f /usr/bin/debugserver_xcode ]; then
     rm -rf /usr/bin/debugserver_xcode
 fi
 
-if [ -f /rootfs/usr/libexec/debugserver ]; then
+if [ -f /usr/libexec/debugserver ]; then
     # ios 16.x+
-    cp /rootfs/usr/libexec/debugserver /usr/bin/debugserver_xcode
+    cp /usr/libexec/debugserver /usr/bin/debugserver_xcode
 
-elif [ -d /rootfs/Developer ] && [ "$(ls -A /rootfs/Developer)" ]; then
-    if [ -f /rootfs/Developer/usr/bin/debugserver ]; then
-        cp /rootfs/Developer/usr/bin/debugserver /usr/bin/debugserver_xcode
+elif [ -d /Developer ] && [ "$(ls -A /Developer)" ]; then
+    if [ -f /Developer/usr/bin/debugserver ]; then
+        cp /Developer/usr/bin/debugserver /usr/bin/debugserver_xcode
     else
         echo "* debugserver for xcode not found on your device" >&2
         exit 1

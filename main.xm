@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#include <roothide.h>
 #include <dlfcn.h>
 
 static void* _SMJobSubmit;
@@ -17,7 +16,7 @@ static void* _SMJobSubmit;
         {
             NSMutableArray* new_argv = [argv mutableCopy];
 
-            new_argv[0] = jbroot(@"/usr/bin/debugserver_xcode");
+            new_argv[0] = @"/usr/bin/debugserver_xcode";
 
             mjob[@"UserName"] = @"root";
             mjob[@"ProgramArguments"] = new_argv;
